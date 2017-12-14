@@ -114,6 +114,32 @@ To run linting, run:
 npm run lint
 ```
 
+## Docker Contatiner
+### Local
+For local development, it is helpful to uncomment the development dependencies in the `Dockerfile`:
+```
+# Dev Deps
+RUN apk add bash bash-doc bash-completion
+RUN apk add curl
+```
+
+Then run:
+```
+docker build .
+docker run -d -p 8080:80 [image] nginx -g 'daemon off;'
+curl localhost:8080
+docker exec -i -t [container] /bin/bash
+```
+
+### Cloud
+For pushing the container to the cloud:
+Comment out the development dependencies (if you followed the steps above), then run:
+```
+docker build .
+docker tag [image] splicemachine/node-splice
+docker push splicemachine/node-splice
+```
+
 ## Notes on importing css styles
 * styles having /src/ in their absolute path considered part of the application and exported as local css modules.
 * other styles considered global styles used by components and included in the css bundle directly.
