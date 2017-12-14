@@ -1,12 +1,8 @@
-[![CircleCI](https://circleci.com/gh/alicoding/react-webpack-babel/tree/master.svg?style=svg)](https://circleci.com/gh/alicoding/react-webpack-babel/tree/master)
+# Simple React Webpack Babel Starter Kit
 
-<p align="center">
-    <h3 align="center">Simple React Webpack Babel Starter Kit<br></h3>
-</p>
+Forked from [alicoding/react-webpack-babel][1] for [splicemachine][2].
 
-Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
-
-### What were using
+## Dependencies
 
 * React 16
 * Webpack 3
@@ -17,17 +13,17 @@ Tired of complicated starters with 200MB of dependencies which are hard to under
 * Jest 21 
 * Enzyme 3 for testing
 
-### Features
+## Features
 
 * Simple src/index.jsx and src/index.css (local module css).
 * Webpack configuration for development (with hot reloading) and production (with minification).
 * CSS module loading, so you can include your css by ```import styles from './path/to.css';```.
 * Both js(x) and css hot loaded during development.
-* [Webpack Dashboard Plugin](https://github.com/FormidableLabs/webpack-dashboard) on dev server.
+* [Webpack Dashboard Plugin][3] on dev server.
 
-### To run
+## Run
 
-* You'll need to have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed in your system.
+* You'll need to have [git][4] and [node][5] installed in your system.
 * Fork and clone the project:
 
 ```
@@ -46,7 +42,7 @@ npm install
 npm start
 ```
 
-* Or you can run development server with [webpack-dashboard](https://github.com/FormidableLabs/webpack-dashboard):
+* Or you can run development server with [webpack-dashboard][3]:
 
 ```
 npm run dev
@@ -54,7 +50,7 @@ npm run dev
 
 Open the web browser to `http://localhost:8888/`
 
-### To test
+## Test
 To run unit tests:
 
 ```
@@ -75,32 +71,39 @@ npm run build
 ```
 
 ### Nginx Config
+This is the configuration for a MacBook. While not strictly necessary for development, this can sever as a guide for containerization. On a Mac, you should use brew to install the server: `brew install nginx`. Preferably don't run it as a service because it is more convinent to reload the ngnix configuration via direct signals.
 
-Here is an example Nginx config:
+- The default location for `docroot` on the Mac is:
 
 ```
-server {
-	# ... root and other options
-
-	gzip on;
-	gzip_http_version 1.1;
-	gzip_types text/plain text/css text/xml application/javascript image/svg+xml;
-
-	location / {
-		try_files $uri $uri/ /index.html;
-	}
-
-	location ~ \.html?$ {
-		expires 1d;
-	}
-
-	location ~ \.(svg|ttf|js|css|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico)$ {
-		access_log off;
-		log_not_found off;
-		expires max;
-	}
-}
+/usr/local/var/www
 ```
+
+- The default nginx configuration will start a server on `8080` and load all other server definitions in:
+
+```
+/usr/local/etc/nginx/servers
+```
+
+- As a sidenote, the default server `root` is `html` and linked thusly.
+
+```
+/usr/local/Cellar/nginx/[version]/html -> /usr/local/var/www
+```
+
+- Reload Configuration / Start / Stop:
+
+```
+nginx -s [reload|start|stop]
+```
+
+- I've linked the configuration found in this repo to this location:
+
+```
+/usr/local/etc/nginx/servers/webpack-demo.conf -> ./webpack-demo.conf
+```
+
+[Some tips][6] on brew nginx.
 
 ### Eslint
 There is a `.eslint.yaml` config for eslint ready with React plugin.
@@ -115,5 +118,9 @@ npm run lint
 * styles having /src/ in their absolute path considered part of the application and exported as local css modules.
 * other styles considered global styles used by components and included in the css bundle directly.
 
-### Contribute
-Please contribute to the project if you know how to make it better, including this README :)
+[1]: https://github.com/alicoding/react-webpack-babel
+[2]: https://github.com/splicemachine
+[3]: https://github.com/FormidableLabs/webpack-dashboard
+[4]: https://git-scm.com/
+[5]: https://nodejs.org/en/
+[6]: http://learnaholic.me/2012/10/10/installing-nginx-in-mac-os-x-mountain-lion/
