@@ -70,7 +70,7 @@ Tests come bundled with:
 npm run build
 ```
 
-### Nginx Config
+## Nginx Config
 This is the configuration for a MacBook. While not strictly necessary for development, this can sever as a guide for containerization. On a Mac, you should use brew to install the server: `brew install nginx`. Preferably don't run it as a service because it is more convinent to reload the ngnix configuration via direct signals.
 
 - The default location for `docroot` on the Mac is:
@@ -105,7 +105,7 @@ nginx -s [reload|start|stop]
 
 [Some tips][6] on brew nginx.
 
-### Eslint
+## Eslint
 There is a `.eslint.yaml` config for eslint ready with React plugin.
 
 To run linting, run:
@@ -114,9 +114,12 @@ To run linting, run:
 npm run lint
 ```
 
-### Notes on importing css styles
+## Notes on importing css styles
 * styles having /src/ in their absolute path considered part of the application and exported as local css modules.
 * other styles considered global styles used by components and included in the css bundle directly.
+
+## Development Notes
+[Notes][7] that don't belong in the readme.md
 
 [1]: https://github.com/alicoding/react-webpack-babel
 [2]: https://github.com/splicemachine
@@ -124,3 +127,4 @@ npm run lint
 [4]: https://git-scm.com/
 [5]: https://nodejs.org/en/
 [6]: http://learnaholic.me/2012/10/10/installing-nginx-in-mac-os-x-mountain-lion/
+[7]: ./docs/dev-notes.md
