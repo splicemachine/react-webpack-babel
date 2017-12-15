@@ -1,12 +1,12 @@
 # import config.
 # You can change the default config with `make cnf="config_special.env" build`
-cnf ?= config.env
+cnf ?= config/config.env
 include $(cnf)
 export $(shell sed 's/=.*//' $(cnf))
 
 # import deploy config
 # You can change the default deploy config with `make cnf="deploy_special.env" release`
-dpl ?= deploy.env
+dpl ?= config/deploy.env
 include $(dpl)
 export $(shell sed 's/=.*//' $(dpl))
 

@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-babel",
-  "version": "0.0.4",
-  "description": "React Webpack Babel Starter Kit",
+  "name": "node-splice",
+  "version": "0.0.1",
+  "description": "PoC Node Splice Machine Communication",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
