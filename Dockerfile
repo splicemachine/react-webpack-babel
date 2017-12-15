@@ -15,7 +15,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 WORKDIR /app
 ADD ./public /app
-ADD ./conf/alpine/server.conf /etc/nginx/conf.d/
+ADD ./config/alpine.nginx.conf /etc/nginx/conf.d/
 #ENTRYPOINT [ "node", "server.js" ]
 #ENTRYPOINT [ "nginx" ]
 CMD ["nginx", "-g", "daemon off;"]
