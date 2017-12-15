@@ -32,3 +32,4 @@ node_modules
 # Ignore build files
 public
 .idea
+.DS_Store
