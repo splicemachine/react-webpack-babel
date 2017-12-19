@@ -1,7 +1,5 @@
 # Simple React Webpack Babel Starter Kit
 
-Forked from [alicoding/react-webpack-babel][1] for [splicemachine][2].
-
 ## Dependencies
 
 * React 16
