@@ -6,8 +6,8 @@ RUN apk add nodejs
 RUN apk add nginx
 
 # Dev Deps
-# RUN apk add bash bash-doc bash-completion
-# RUN apk add curl
+RUN apk add bash bash-doc bash-completion
+RUN apk add curl
 
 RUN mkdir -p /run/nginx/
 RUN touch /run/nginx/nginx.pid
